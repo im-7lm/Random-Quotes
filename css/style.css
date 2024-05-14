@@ -152,6 +152,8 @@ body {
   border-radius: 20px;
   transition: 0.3s;
   width: auto;
+  cursor: pointer;
+  user-select: none;
 }
 
 .quote-card .container .button.add {

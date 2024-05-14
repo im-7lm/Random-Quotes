@@ -9,27 +9,24 @@
   <body>
     <div class="quote-card">
       <div class="container">
-        <span class="number">1</span>
+        <span class="number" id="quoteId">1</span>
         <h2>Quote of the day</h2>
         <div class="quote">
           <img src="images/quote-up-light.svg" alt="quote" class="quote-up" />
-          <p>
-            Never give up because you never know if the next try is going to be
-            the one that works.
-          </p>
+          <p id="quote-content">Quote Will Appear Here</p>
           <img src="images/quote-down-light.svg" alt="" class="quote-down" />
         </div>
-        <p class="author">Mary Kay Ash</p>
+        <p class="author" id="author">Quote Author</p>
         <hr />
         <div class="buttons">
-          <a href="#" class="button add"
+          <a class="button add" id="generate"
             ><img src="images/add.svg" alt="add" />New Quote</a
           >
-          <a href="#" class="button auto"
-            ><img src="images/auto.svg" alt="add" />Auto Generate</a
+          <a class="button auto" id="auto"
+            ><img src="images/auto.svg" alt="auto" />Auto Generate</a
           >
-          <a href="#" class="button stop"
-            ><img src="images/stop.svg" alt="add" />Stop Generate</a
+          <a class="button stop" id="stop"
+            ><img src="images/stop.svg" alt="stop" />Stop Generate</a
           >
         </div>
         <div class="cta-s">
