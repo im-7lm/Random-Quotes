@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;900&display=swap");
+
+:root {
+  --main-color: #618cfa;
+  --white-color: #f8f8ff;
+
+  --en-font: "Poppins", sans-serif;
+  --ar-font: "IBM Plex Sans Arabic", sans-serif;
+}

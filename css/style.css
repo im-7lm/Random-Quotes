@@ -1,0 +1,438 @@
+@import url(settings.css);
+
+body {
+  background-color: #eeeeee;
+  position: relative;
+  margin: 0 10px;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.quote-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: var(--en-font) !important;
+}
+
+.quote-card .container {
+  background-color: #fff;
+  padding: 80px;
+  padding-bottom: 40px;
+  width: 40%;
+  height: auto;
+  position: relative;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1500px) {
+  .quote-card .container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .quote-card .container {
+    width: auto;
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .quote-card .container {
+    padding: 20px;
+  }
+
+  .quote-card .container .number {
+    top: -0.7em !important;
+  }
+}
+
+.quote-card .container .number {
+  font-size: 48px;
+  font-weight: 600;
+  background-color: var(--main-color);
+  padding: 3px 30px;
+  border-radius: 50%;
+  color: var(--white-color);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -20%);
+}
+
+.quote-card .container h2 {
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #1e1e1e;
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.quote-card .container .quote {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.quote-card .container .quote .quote-up,
+.quote-card .container .quote .quote-down {
+  margin: 3px 10px 0 0;
+  position: absolute;
+}
+
+.quote-card .container .quote .quote-up {
+  left: -4%;
+  top: 8%;
+}
+
+.quote-card .container .quote .quote-down {
+  right: -2%;
+  bottom: 15%;
+}
+
+.quote-card .container .quote p {
+  font-size: 32px;
+  text-align: center;
+  font-weight: 500;
+  color: #1e1e1e;
+}
+
+.quote-card .container .author {
+  position: relative;
+  font-size: 20px;
+  font-style: italic;
+  color: #000;
+  opacity: 70%;
+  text-align: right;
+  margin-bottom: 1.5em;
+  margin-top: 8px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.quote-card .container .author::before {
+  content: "";
+  position: absolute;
+  width: 33px;
+  height: 1px;
+  background-color: #000000;
+  opacity: 70%;
+  top: 50%;
+  right: 110%;
+}
+
+.quote-card .container .buttons .stop {
+  display: none !important;
+}
+
+.quote-card .container .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 21px;
+  margin-top: 1.5em;
+}
+
+.quote-card .container .buttons .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 30px;
+  border-radius: 20px;
+  transition: 0.3s;
+  width: auto;
+}
+
+.quote-card .container .button.add {
+  background-color: #28bc40;
+  padding: 20px 40px;
+}
+
+.quote-card .container .buttons .button.auto {
+  background-color: var(--main-color);
+}
+
+.quote-card .container .buttons .button.add:hover {
+  background-color: #47db60 !important;
+}
+.quote-card .container .buttons .button.auto:hover {
+  background-color: #4e6fc2 !important;
+}
+
+.quote-card .container .cta-s {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  column-gap: 1em;
+}
+
+.quote-card .container .cta-s .cta {
+  border: 2px solid var(--main-color);
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quote-card .container .cta-s .cta:hover {
+  border: 2px dashed var(--main-color);
+}
+
+@media (max-width: 700px) {
+  .quote-card .container .quote p {
+    font-size: 26px;
+    width: 100%;
+  }
+
+  .quote-card .container .quote .quote-up,
+  .quote-card .container .quote .quote-down {
+    width: 22px;
+  }
+
+  .quote-card .container .buttons .button {
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  .quote-card .container .button.add {
+    padding: 20px 30px;
+  }
+}
+
+.menu-button {
+  position: absolute;
+  bottom: 1em;
+  left: 0.5em;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  font-family: var(--ar-font) !important;
+  /* display: none; */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  top: 0;
+  z-index: 1000;
+}
+
+.menu .container {
+  background: #fff;
+  border-radius: 20px;
+  min-width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  box-shadow: 0 21px 30px #e9e8e8;
+}
+
+@media screen and (max-width:1500px) {
+  .menu .container {
+    min-width: 40%;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .menu .container {
+    min-width: 60%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .menu .container {
+    min-width: 90%;
+  }
+}
+
+.menu .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.menu .head #menu-image {
+  width: 40px;
+}
+
+.menu .head #close {
+  cursor: pointer;
+  width: 30px;
+  margin-bottom: 1em;
+}
+
+.menu .head .title {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+.menu .head .title h2 {
+  font-size: 30px;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.menu .settings {
+  width: 100%;
+}
+
+.menu .settings .settings-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-align: right;
+  margin: 8px 0;
+}
+
+.menu .settings .settings-items .item {
+  cursor: pointer;
+  padding: 0 5px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+
+.menu .settings .settings-items .item:hover {
+  background-color: #e8e9ec4d;
+}
+
+.menu .settings .settings-items .item.input {
+  cursor: auto;
+}
+
+.menu .settings .settings-items .item p {
+  margin: 12px;
+  font-size: 18px;
+  color: #494c72;
+  direction: rtl;
+}
+
+.custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 36px;
+  height: 8px;
+  background: #e1e1e1;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.toggle-switch::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 9px;
+  height: 12px;
+  background: #2b2d42;
+  top: -2.5px;
+  left: 30px;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background-color: var(--main-color);
+}
+
+.toggle-checkbox:checked + .toggle-switch::before {
+  background-color: #a5a9dc;
+  left: 0;
+}
+
+.menu .settings .settings-items .item .timeSet {
+  border: 2px solid #e1e1e1;
+  width: 80px;
+  height: 25px;
+  border-radius: 9px;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+  color: var(--main-color);
+  font-family: var(--ar-font);
+  font-weight: 700;
+  direction: rtl;
+}
+
+.menu .settings .settings-items .item .timeSet::placeholder {
+  font-family: var(--ar-font);
+  color: #00000088;
+}
+
+.menu .settings .settings-items .item .timeSet:focus {
+  border: 2px solid var(--main-color);
+}
+
+.menu .settings .socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  margin: 1.5em auto;
+  padding-right: 1em;
+}
+
+.menu .settings .socials img {
+  cursor: pointer;
+  width: 22px;
+}
+
+.menu .settings .credits {
+  font-family: var(--en-font);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1.5em auto;
+  margin-bottom: 3em;
+}
+
+.menu .settings .credits a {
+  text-decoration: none;
+  color: #494c72;
+  font-weight: 400;
+  font-size: 18px;
+  margin-right: 1em;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu .settings .credits a:hover {
+  background-color: #e8e9ec4d;
+}

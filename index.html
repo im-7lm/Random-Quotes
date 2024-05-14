@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Quotes app</title>
+  </head>
+  <body>
+    <div class="quote-card">
+      <div class="container">
+        <span class="number">1</span>
+        <h2>Quote of the day</h2>
+        <div class="quote">
+          <img src="images/quote-up-light.svg" alt="quote" class="quote-up" />
+          <p>
+            Never give up because you never know if the next try is going to be
+            the one that works.
+          </p>
+          <img src="images/quote-down-light.svg" alt="" class="quote-down" />
+        </div>
+        <p class="author">Mary Kay Ash</p>
+        <hr />
+        <div class="buttons">
+          <a href="#" class="button add"
+            ><img src="images/add.svg" alt="add" />New Quote</a
+          >
+          <a href="#" class="button auto"
+            ><img src="images/auto.svg" alt="add" />Auto Generate</a
+          >
+          <a href="#" class="button stop"
+            ><img src="images/stop.svg" alt="add" />Stop Generate</a
+          >
+        </div>
+        <div class="cta-s">
+          <a class="cta"><img src="images/listen.svg" alt="listen" /></a>
+          <a class="cta"><img src="images/copy.svg" alt="copy" /></a>
+          <a class="cta"><img src="images/X.svg" alt="X" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="menu d-none">
+      <div class="container">
+        <div class="head">
+          <div class="title">
+            <img src="images/menu-light.svg" alt="menu" id="menu-image" />
+            <h2>القائمة</h2>
+          </div>
+          <img src="images/Close-light.svg" alt="close" id="close" />
+        </div>
+        <div class="settings">
+          <h2 class="settings-title">الإعدادات</h2>
+          <div class="settings-items">
+            <label for="setMode" class="item">
+              <p>الوضع المظلم</p>
+              <div class="custom">
+                <input type="checkbox" id="setMode" class="toggle-checkbox" />
+                <div class="toggle-switch"></div>
+              </div>
+            </label>
+
+            <label for="timeSet" class="item input">
+              <p>اقتباس كل :</p>
+              <input
+                type="input"
+                id="timeSet"
+                class="timeSet"
+                value="3 ثواني" />
+            </label>
+
+            <div class="item" id="download">
+              <p>تثبيت البرنامج</p>
+              <img src="images/download.svg" alt="download" />
+            </div>
+          </div>
+        </div>
+        <div class="settings">
+          <h2 class="settings-title">حساباتي</h2>
+          <div class="socials">
+            <a href=""><img src="images/X-social.svg" alt="X" /></a>
+            <a href=""><img src="images/instagram.svg" alt="Instagram" /></a>
+            <a href=""><img src="images/github.svg" alt="Github" /></a>
+          </div>
+        </div>
+        <div class="settings">
+          <h2 class="settings-title">اعتمادات الموقع</h2>
+          <div class="credits">
+            <a href="#">COCO icon-CC BY 4.0</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="menu-button">
+      <a><img src="images/menu-light.svg" alt="menu" /></a>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
