@@ -35,7 +35,7 @@ shareButton.addEventListener("click", shareToX);
 
 // Get a random quote from the API
 async function getQuote() {
-  const response = await fetch("http://api.quotable.io/random");
+  const response = await fetch("https://api.quotable.io/random");
   const data = await response.json();
   return data;
 }
