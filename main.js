@@ -188,6 +188,6 @@ function shareToX() {
 //Loading Screen
 $(window).on("load", function () {
   $("body").css("overflow", "auto");
-  $(".loader-overlay").fadeOut(1000);
-  $(".loader").fadeOut(1000);
+  $(".loader-overlay").fadeOut(2000);
+  $(".loader").fadeOut(2000);
 });
