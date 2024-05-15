@@ -57,3 +57,8 @@
   }
 }
 /* End Loading Screen */
+
+::selection {
+  background-color: var(--main-color);
+  color: #fff;
+}
