@@ -114,6 +114,11 @@ async function quoteListen() {
     let text = currentQuote.text;
     const utterThis = new SpeechSynthesisUtterance(text);
 
+    // Configure speech synthesis options
+    utterThis.volume = 1; // Adjust the volume (0 to 1)
+    utterThis.rate = 1; // Adjust the speech rate (0.1 to 10)
+    utterThis.pitch = 1; // Adjust the pitch (0 to 2)
+
     // Pause auto-generation
     stopAutoGenerate();
 
@@ -129,21 +134,29 @@ async function quoteListen() {
   }
 }
 
-async function copyQuote() {
+function copyQuote() {
   const textToCopy = quoteText.innerText;
 
-  try {
-    await navigator.clipboard.writeText(textToCopy);
-    Toast.fire({
-      icon: "success",
-      title: "تم النسخ بنجاح",
-    });
-  } catch (error) {
-    Toast.fire({
-      icon: "error",
-      title: "حدث خطأ في نسخ النص",
-    });
-  }
+  // Create a temporary input element
+  const tempInput = document.createElement("input");
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+
+  // Select the text field
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the input field
+  document.execCommand("copy");
+
+  // Remove the temporary input element
+  document.body.removeChild(tempInput);
+
+  // Alert the copied text
+  Toast.fire({
+    icon: "success",
+    title: "تم النسخ بنجاح",
+  });
 }
 
 function shareToX() {
