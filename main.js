@@ -185,18 +185,9 @@ function shareToX() {
   }
 }
 
-function showLoader() {
-  document.getElementById("loader").style.display = "block";
-}
-
-function hideLoader() {
-  document.getElementById("loader").style.display = "none";
-}
-
-// Show the loader
-showLoader();
-
-// Hide the loader when the page finishes loading
-window.addEventListener("load", function () {
-  hideLoader();
+//Loading Screen
+$(window).on("load", function () {
+  $("body").css("overflow", "auto");
+  $(".loader-overlay").fadeOut(1000);
+  $(".loader").fadeOut(1000);
 });
