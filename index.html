@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Quotes app</title>
+    <title>Random Quotes Generator</title>
   </head>
   <body>
     <div class="quote-card">
@@ -36,14 +36,14 @@
         </div>
       </div>
     </div>
-    <div class="menu d-none">
+    <div class="menu d-none" id="menu">
       <div class="container">
         <div class="head">
           <div class="title">
-            <img src="images/menu-light.svg" alt="menu" id="menu-image" />
+            <img src="images/menu.svg" alt="menu" id="menu-image" />
             <h2>القائمة</h2>
           </div>
-          <img src="images/Close-light.svg" alt="close" id="close" />
+          <img src="images/Close-light.svg" alt="close" id="close-menu" />
         </div>
         <div class="settings">
           <h2 class="settings-title">الإعدادات</h2>
@@ -57,38 +57,44 @@
             </label>
 
             <label for="timeSet" class="item input">
-              <p>اقتباس كل :</p>
-              <input
-                type="input"
-                id="timeSet"
-                class="timeSet"
-                value="3 ثواني" />
+              <p>اقتباس كل / ثواني</p>
+              <input type="input" id="timeSet" class="timeSet" value="3" />
             </label>
 
-            <div class="item" id="download">
+            <!-- <div class="item" id="download">
               <p>تثبيت البرنامج</p>
               <img src="images/download.svg" alt="download" />
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="settings">
           <h2 class="settings-title">حساباتي</h2>
           <div class="socials">
-            <a href=""><img src="images/X-social.svg" alt="X" /></a>
-            <a href=""><img src="images/instagram.svg" alt="Instagram" /></a>
-            <a href=""><img src="images/github.svg" alt="Github" /></a>
+            <a href="https://twitter.com/7lm_dev" target="_blank"
+              ><img src="images/X-social.svg" alt="X"
+            /></a>
+            <a href="https://www.instagram.com/a.dev1" target="_blank"
+              ><img src="images/instagram.svg" alt="Instagram"
+            /></a>
+            <a href="https://github.com/im-7lm" target="_blank"
+              ><img src="images/github.svg" alt="Github"
+            /></a>
           </div>
         </div>
         <div class="settings">
           <h2 class="settings-title">اعتمادات الموقع</h2>
           <div class="credits">
-            <a href="#">COCO icon-CC BY 4.0</a>
+            <a
+              href="https://www.figma.com/community/file/944228750903853832/coco-icon-pack-600-editable-icons"
+              target="_blank"
+              >COCO icon-CC BY 4.0</a
+            >
           </div>
         </div>
       </div>
     </div>
-    <div class="menu-button">
-      <a><img src="images/menu-light.svg" alt="menu" /></a>
+    <div class="menu-button" id="menu-button">
+      <a><img src="images/menu.svg" alt="menu" /> </a>
     </div>
     <script src="main.js"></script>
   </body>

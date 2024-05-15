@@ -6,6 +6,32 @@ body {
   margin: 0 10px;
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-out;
+}
+
 .d-none {
   display: none !important;
 }
@@ -85,6 +111,7 @@ body {
   position: absolute;
 }
 
+
 .quote-card .container .quote .quote-up {
   left: -4%;
   top: 8%;
@@ -100,6 +127,7 @@ body {
   text-align: center;
   font-weight: 500;
   color: #1e1e1e;
+  min-height: 100px;
 }
 
 .quote-card .container .author {
@@ -125,10 +153,6 @@ body {
   opacity: 70%;
   top: 50%;
   right: 110%;
-}
-
-.quote-card .container .buttons .stop {
-  display: none !important;
 }
 
 .quote-card .container .buttons {
@@ -165,11 +189,19 @@ body {
   background-color: var(--main-color);
 }
 
+.quote-card .container .buttons .stop {
+  display: none;
+  background-color: #cd2929;
+}
+
 .quote-card .container .buttons .button.add:hover {
   background-color: #47db60 !important;
 }
 .quote-card .container .buttons .button.auto:hover {
   background-color: #4e6fc2 !important;
+}
+.quote-card .container .buttons .button.stop:hover {
+  background-color: #ad2929 !important;
 }
 
 .quote-card .container .cta-s {
@@ -231,7 +263,6 @@ body {
   position: absolute;
   width: 100%;
   font-family: var(--ar-font) !important;
-  /* display: none; */
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   top: 0;
@@ -250,19 +281,19 @@ body {
   box-shadow: 0 21px 30px #e9e8e8;
 }
 
-@media screen and (max-width:1500px) {
+@media screen and (max-width: 1500px) {
   .menu .container {
     min-width: 40%;
   }
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width: 900px) {
   .menu .container {
     min-width: 60%;
   }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .menu .container {
     min-width: 90%;
   }
@@ -280,7 +311,7 @@ body {
   width: 40px;
 }
 
-.menu .head #close {
+.menu .head #close-menu {
   cursor: pointer;
   width: 30px;
   margin-bottom: 1em;
@@ -300,6 +331,7 @@ body {
 
 .menu .settings {
   width: 100%;
+  user-select: none;
 }
 
 .menu .settings .settings-title {
@@ -437,4 +469,50 @@ body {
 
 .menu .settings .credits a:hover {
   background-color: #e8e9ec4d;
+}
+
+/* Dark mode */
+
+.dark-mode {
+  background-color: #091022;
+  color: #ffffff;
+}
+
+.dark-mode .item p {
+  color: #ffffff;
+}
+
+.dark-mode .quote-card .container,
+.dark-mode .menu .container {
+  background-color: #2b2d42 !important;
+}
+
+.dark-mode .menu .container {
+  box-shadow: 0 21px 30px #131624;
+}
+
+.dark-mode .menu .head .title h2,
+.dark-mode .menu .settings .settings-title,
+.dark-mode .quote-card .container h2,
+.dark-mode .quote-card .container .quote p,
+.dark-mode .quote-card .container .author {
+  color: #fff;
+}
+
+.dark-mode .quote-card .container .author::before {
+  background-color: #fff;
+}
+
+.dark-mode .menu .settings .settings-items .item p,
+.dark-mode .menu .settings .credits a {
+  color: #9293ab;
+}
+
+.dark-mode .menu .settings .settings-items .item .timeSet {
+background-color: unset;
+}
+
+.dark-mode .quote-card .container .quote .quote-up,
+.dark-mode .quote-card .container .quote .quote-down {
+  filter: invert(100%) sepia(93%) saturate(1%) hue-rotate(257deg) brightness(107%) contrast(100%);
 }
