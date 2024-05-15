@@ -184,3 +184,19 @@ function shareToX() {
     window.open(tweetUrl);
   }
 }
+
+function showLoader() {
+  document.getElementById("loader").style.display = "block";
+}
+
+function hideLoader() {
+  document.getElementById("loader").style.display = "none";
+}
+
+// Show the loader
+showLoader();
+
+// Hide the loader when the page finishes loading
+window.addEventListener("load", function () {
+  hideLoader();
+});
