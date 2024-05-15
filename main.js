@@ -112,7 +112,8 @@ async function quoteListen() {
   // Check if a quote is available
   if (currentQuote) {
     let text = currentQuote.text;
-    const utterThis = new SpeechSynthesisUtterance(text);
+    let author = currentQuote.author;
+    const utterThis = new SpeechSynthesisUtterance(`${text} by ${author}`);
 
     // Configure speech synthesis options
     utterThis.volume = 1; // Adjust the volume (0 to 1)
