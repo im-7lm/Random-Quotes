@@ -71,7 +71,7 @@ body {
 @media screen and (max-width: 500px) {
   .quote-card .container {
     padding: 20px;
-    margin-bottom: 5em;
+    /* margin-bottom: 5em; */
     margin-top: 3em;
   }
 
@@ -318,6 +318,10 @@ body {
 @media screen and (max-width: 500px) {
   .menu .container {
     min-width: 90%;
+  }
+
+  .menu-button {
+    top: 1em;
   }
 }
 
