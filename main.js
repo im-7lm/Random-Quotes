@@ -33,23 +33,27 @@ listenButton.addEventListener("click", quoteListen);
 copyButton.addEventListener("click", copyQuote);
 shareButton.addEventListener("click", shareToX);
 
-// Get quotes function
-async function getQuotes() {
-  const response = await fetch("quotes.json");
+// Get a random quote from the API
+async function getQuote() {
+  const response = await fetch("http://api.quotable.io/random");
   const data = await response.json();
   return data;
 }
 
-// generate one quote function
+// Generate one quote function
 async function generateQuote() {
-  const quotes = await getQuotes();
-  currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  const quote = await getQuote();
+  currentQuote = {
+    text: quote.content,
+    id: Math.floor(Math.random() * quote.length),
+    author: quote.author,
+  };
   quoteText.innerHTML = currentQuote.text;
   quoteId.innerHTML = currentQuote.id;
   quoteAuthor.innerHTML = currentQuote.author;
 }
 
-// start auto generate function
+// Start auto generate function
 function startAutoGenerate() {
   generateQuote();
   var timeSetValue = parseInt(timeSetInput.value);
@@ -60,7 +64,7 @@ function startAutoGenerate() {
   stopGenerateButton.style.display = "flex";
 }
 
-// stop auto generate function
+// Stop auto generate function
 function stopAutoGenerate() {
   clearInterval(intervalId);
   autoGenerateButton.classList.remove("d-none");
@@ -79,7 +83,7 @@ timeSetInput.value = savedValue || "3";
 
 var timeSetMilliseconds = (savedValue || 3) * 1000;
 
-// open menu button
+// Open menu button
 function openMenu() {
   menu.classList.remove("d-none");
   menu.classList.add("fadeIn");
@@ -98,21 +102,22 @@ function closeMenu() {
   );
 }
 
-// dark mode logic
+// Dark mode logic
 function toggleDarkMode() {
   const body = document.body;
 
   body.classList.toggle("dark-mode");
 }
 
-// quote listeing function
+// Quote listening function
 async function quoteListen() {
   const synth = window.speechSynthesis;
 
   // Check if a quote is available
   if (currentQuote) {
     let text = currentQuote.text;
-    const utterThis = new SpeechSynthesisUtterance(text);
+    let author = currentQuote.author;
+    const utterThis = new SpeechSynthesisUtterance(`${text} by ${author}`);
 
     // Configure speech synthesis options
     utterThis.volume = 1; // Adjust the volume (0 to 1)
@@ -185,7 +190,7 @@ function shareToX() {
   }
 }
 
-//Loading Screen
+// Loading Screen
 $(window).on("load", function () {
   $("body").css("overflow", "auto");
   $(".loader-overlay").fadeOut(2000);
