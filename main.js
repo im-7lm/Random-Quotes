@@ -19,6 +19,7 @@ const checkbox = document.getElementById("setMode");
 
 let intervalId;
 let currentQuote = null;
+const maxLength = 120;
 
 generateButton.addEventListener("click", generateQuote);
 autoGenerateButton.addEventListener("click", startAutoGenerate);
@@ -33,16 +34,18 @@ listenButton.addEventListener("click", quoteListen);
 copyButton.addEventListener("click", copyQuote);
 shareButton.addEventListener("click", shareToX);
 
-// Get a random quote from the API
-async function getQuote() {
-  const response = await fetch("https://api.quotable.io/random");
+// Get a random quote from the API 
+async function getQuote(maxLength) {
+  const response = await fetch(
+    `https://api.quotable.io/random?maxLength=${maxLength}`
+  );
   const data = await response.json();
   return data;
 }
 
 // Generate one quote function
 async function generateQuote() {
-  const quote = await getQuote();
+  const quote = await getQuote(maxLength);
   currentQuote = {
     text: quote.content,
     id: Math.floor(Math.random() * quote.length),
