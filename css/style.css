@@ -4,6 +4,7 @@ body {
   background-color: #eeeeee;
   position: relative;
   margin: 0 10px;
+  overflow-x: hidden !important;
 }
 
 @keyframes fadeOut {
@@ -70,6 +71,8 @@ body {
 @media screen and (max-width: 500px) {
   .quote-card .container {
     padding: 20px;
+    margin-bottom: 9em;
+    margin-top: 5em;
   }
 
   .quote-card .container .number {
@@ -78,16 +81,20 @@ body {
 }
 
 .quote-card .container .number {
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 600;
   background-color: var(--main-color);
-  padding: 3px 30px;
   border-radius: 50%;
   color: var(--white-color);
   position: absolute;
   left: 50%;
   top: 0;
   transform: translate(-50%, -20%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quote-card .container h2 {
@@ -97,6 +104,21 @@ body {
   color: #1e1e1e;
   text-align: center;
   margin-bottom: 7px;
+}
+
+.quote-card .container .logo{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 180px;
+    margin-bottom: -2em;
+} 
+
+@media screen and (max-width: 500px) {
+  .quote-card .container h2 {
+    font-size: 24px;
+  }
 }
 
 .quote-card .container .quote {
@@ -110,7 +132,6 @@ body {
   margin: 3px 10px 0 0;
   position: absolute;
 }
-
 
 .quote-card .container .quote .quote-up {
   left: -4%;
@@ -159,15 +180,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   gap: 21px;
   margin-top: 1.5em;
+  font-family: var(--ar-font);
 }
 
 .quote-card .container .buttons .button {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row-reverse;
   gap: 10px;
   font-size: 20px;
   color: #fff;
@@ -182,8 +206,9 @@ body {
 
 .quote-card .container .button.add {
   background-color: #28bc40;
-  padding: 20px 40px;
+  /* padding: 20px 40px; */
 }
+
 
 .quote-card .container .buttons .button.auto {
   background-color: var(--main-color);
@@ -243,9 +268,6 @@ body {
     padding: 20px;
   }
 
-  .quote-card .container .button.add {
-    padding: 20px 30px;
-  }
 }
 
 .menu-button {
@@ -509,10 +531,11 @@ body {
 }
 
 .dark-mode .menu .settings .settings-items .item .timeSet {
-background-color: unset;
+  background-color: unset;
 }
 
 .dark-mode .quote-card .container .quote .quote-up,
 .dark-mode .quote-card .container .quote .quote-down {
-  filter: invert(100%) sepia(93%) saturate(1%) hue-rotate(257deg) brightness(107%) contrast(100%);
+  filter: invert(100%) sepia(93%) saturate(1%) hue-rotate(257deg)
+    brightness(107%) contrast(100%);
 }

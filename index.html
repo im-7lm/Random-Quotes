@@ -4,35 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Random Quotes Generator</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <title>اقتباس</title>
+    <style>
+      div:where(.swal2-container) div:where(.swal2-popup) {
+        font-family: var(--ar-font) !important;
+        font-weight: bold;
+      }
+    </style>
   </head>
-  <body>
-    <div class="quote-card">
+  <body class="dark-mode">
+    <div class="quote-card" id="quote-card">
       <div class="container">
         <span class="number" id="quoteId">1</span>
-        <h2>Quote of the day</h2>
+        <img src="images/logo.png" class="logo" alt="">
+        <!-- <h2>Quote of the day</h2> -->
         <div class="quote">
           <img src="images/quote-up-light.svg" alt="quote" class="quote-up" />
           <p id="quote-content">Quote Will Appear Here</p>
           <img src="images/quote-down-light.svg" alt="" class="quote-down" />
-        </div>
+      </div>
         <p class="author" id="author">Quote Author</p>
         <hr />
         <div class="buttons">
           <a class="button add" id="generate"
-            ><img src="images/add.svg" alt="add" />New Quote</a
+            ><img src="images/add.svg" alt="add" />اقتباس جديد</a
           >
           <a class="button auto" id="auto"
-            ><img src="images/auto.svg" alt="auto" />Auto Generate</a
+            ><img src="images/auto.svg" alt="auto" />تشغيل تلقائي</a
           >
           <a class="button stop" id="stop"
-            ><img src="images/stop.svg" alt="stop" />Stop Generate</a
+            ><img src="images/stop.svg" alt="stop" />ايقاف التشغيل</a
           >
         </div>
         <div class="cta-s">
-          <a class="cta"><img src="images/listen.svg" alt="listen" /></a>
-          <a class="cta"><img src="images/copy.svg" alt="copy" /></a>
-          <a class="cta"><img src="images/X.svg" alt="X" /></a>
+          <a class="cta" id="listen"
+            ><img src="images/listen.svg" alt="listen"
+          /></a>
+          <a class="cta" id="copy"><img src="images/copy.svg" alt="copy" /></a>
+          <a class="cta" id="shareButton"><img src="images/X.svg" alt="X" /></a>
         </div>
       </div>
     </div>
@@ -51,7 +61,7 @@
             <label for="setMode" class="item">
               <p>الوضع المظلم</p>
               <div class="custom">
-                <input type="checkbox" id="setMode" class="toggle-checkbox" />
+                <input type="checkbox" id="setMode" class="toggle-checkbox" checked/>
                 <div class="toggle-switch"></div>
               </div>
             </label>
@@ -71,7 +81,7 @@
           <h2 class="settings-title">حساباتي</h2>
           <div class="socials">
             <a href="https://twitter.com/7lm_dev" target="_blank"
-              ><img src="images/X-social.svg" alt="X"
+              ><img src="images/X.svg" alt="X"
             /></a>
             <a href="https://www.instagram.com/a.dev1" target="_blank"
               ><img src="images/instagram.svg" alt="Instagram"
@@ -97,5 +107,20 @@
       <a><img src="images/menu.svg" alt="menu" /> </a>
     </div>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      // swal fire Toast alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+    </script>
   </body>
 </html>

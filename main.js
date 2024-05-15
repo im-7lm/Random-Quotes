@@ -10,15 +10,28 @@ const menuButton = document.getElementById("menu-button");
 const closeMenuButton = document.getElementById("close-menu");
 const menu = document.getElementById("menu");
 
+const listenButton = document.getElementById("listen");
+const copyButton = document.getElementById("copy");
+const shareButton = document.getElementById("shareButton");
+
 const timeSetInput = document.getElementById("timeSet");
 const checkbox = document.getElementById("setMode");
 
 let intervalId;
+let currentQuote = null;
 
 generateButton.addEventListener("click", generateQuote);
 autoGenerateButton.addEventListener("click", startAutoGenerate);
 stopGenerateButton.addEventListener("click", stopAutoGenerate);
+document.addEventListener("DOMContentLoaded", generateQuote);
+
+menuButton.addEventListener("click", openMenu);
+closeMenuButton.addEventListener("click", closeMenu);
 checkbox.addEventListener("change", toggleDarkMode);
+
+listenButton.addEventListener("click", quoteListen);
+copyButton.addEventListener("click", copyQuote);
+shareButton.addEventListener("click", shareToX);
 
 // Get quotes function
 async function getQuotes() {
@@ -30,10 +43,10 @@ async function getQuotes() {
 // generate one quote function
 async function generateQuote() {
   const quotes = await getQuotes();
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  quoteText.innerHTML = quote.text;
-  quoteId.innerHTML = quote.id;
-  quoteAuthor.innerHTML = quote.author;
+  currentQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  quoteText.innerHTML = currentQuote.text;
+  quoteId.innerHTML = currentQuote.id;
+  quoteAuthor.innerHTML = currentQuote.author;
 }
 
 // start auto generate function
@@ -66,13 +79,13 @@ timeSetInput.value = savedValue || "3";
 
 var timeSetMilliseconds = (savedValue || 3) * 1000;
 
-// menu
-menuButton.addEventListener("click", () => {
+// open menu button
+function openMenu() {
   menu.classList.remove("d-none");
   menu.classList.add("fadeIn");
-});
+}
 
-closeMenuButton.addEventListener("click", () => {
+function closeMenu() {
   menu.classList.remove("fadeIn");
   menu.classList.add("fadeOut");
   menu.addEventListener(
@@ -83,17 +96,67 @@ closeMenuButton.addEventListener("click", () => {
     },
     { once: true }
   );
-});
+}
 
 // dark mode logic
 function toggleDarkMode() {
   const body = document.body;
 
   body.classList.toggle("dark-mode");
+}
 
-  if (body.classList.contains("dark-mode")) {
-    image.src = darkSrc;
-  } else {
-    image.src = lightSrc;
+// quote listeing function
+async function quoteListen() {
+  const synth = window.speechSynthesis;
+
+  // Check if a quote is available
+  if (currentQuote) {
+    let text = currentQuote.text;
+    const utterThis = new SpeechSynthesisUtterance(text);
+
+    // Pause auto-generation
+    stopAutoGenerate();
+
+    // Listen to the quote
+    synth.speak(utterThis);
+
+    utterThis.onend = function () {
+      // Resume auto-generation after the voice finishes speaking
+      if (autoGenerateButton.classList.contains("d-none")) {
+        startAutoGenerate();
+      }
+    };
+  }
+}
+
+async function copyQuote() {
+  const textToCopy = quoteText.innerText;
+
+  try {
+    await navigator.clipboard.writeText(textToCopy);
+    Toast.fire({
+      icon: "success",
+      title: "تم النسخ بنجاح",
+    });
+  } catch (error) {
+    Toast.fire({
+      icon: "error",
+      title: "حدث خطأ في نسخ النص",
+    });
+  }
+}
+
+function shareToX() {
+  if (currentQuote) {
+    const quoteText = currentQuote.text;
+    const quoteAuthor = currentQuote.author;
+
+    const shareText = `${quoteText} - ${quoteAuthor}`;
+
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      shareText
+    )}`;
+
+    window.open(tweetUrl);
   }
 }
